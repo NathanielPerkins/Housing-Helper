@@ -13,6 +13,8 @@
     <p><input type=submit value=Submit>
   </form>
   </div>
+  <table>
+  	<tr>
   	{% if travel1 %}
 	<iframe
 	  width="500"
@@ -29,12 +31,25 @@
 	  src={{travel2}} allowfullscreen>
 	</iframe>
 	{% endif %}
-	{% if supermarkets %}
+	{% if near %}
 	<iframe
 	  width="500"
 	  height="400"
 	  frameborder="0" style="border:0"
-	  src={{supermarkets}} allowfullscreen>
+	  src={{near}} allowfullscreen>
 	</iframe>
 	{% endif %}
+	</tr>
+	<tr>
+		<h1>Supermarkets</h1>
+		{% for market in markets_walk %}
+		<iframe
+		  width="500"
+		  height="400"
+		  frameborder="0" style="border:0"
+		  src={{market}} allowfullscreen>
+		</iframe>
+		{% endfor %}
+	</tr>
+	</table>
 </html>

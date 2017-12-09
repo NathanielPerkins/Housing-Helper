@@ -40,9 +40,13 @@ def index():
         else:
             directions2 = None
         sup = build_supermarket_string(source, near_me)
+        markets_walk = [build_direction_string(source, x, 'walking') for x in
+                        ["woolwoorths+near+{}".format(source),
+                         "coles+near+{}".format(source),
+                         "aldi+near+{}".format(source)]]
         return render_template('app.html', travel1=directions1,
                                travel2=directions2, supermarkets=sup,
-                               form=form)
+                               markets_walk=markets_walk, form=form)
     return render_template('app.html', form=form)
 
 
