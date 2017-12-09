@@ -39,18 +39,18 @@ def index():
                                                  transport)
         else:
             directions2 = None
-        sup = build_supermarket_string(source, near_me)
+        near = build_near_string(source, near_me)
         markets_walk = [build_direction_string(source, x, 'walking') for x in
                         ["woolwoorths+near+{}".format(source),
                          "coles+near+{}".format(source),
                          "aldi+near+{}".format(source)]]
         return render_template('app.html', travel1=directions1,
-                               travel2=directions2, supermarkets=sup,
+                               travel2=directions2, near=near,
                                markets_walk=markets_walk, form=form)
     return render_template('app.html', form=form)
 
 
-def build_supermarket_string(source, near_me=None):
+def build_near_string(source, near_me=None):
     base_str = "https://www.google.com/maps/embed/v1/search?key="
     to_request = base_str + API
     if near_me is "":
