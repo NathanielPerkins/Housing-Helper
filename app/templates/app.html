@@ -1,0 +1,38 @@
+{% from "_formhelpers.html" import render_field %}
+<html>
+  <div class="column">
+    <h1>Housing Helper</h1>
+  <form method=post>
+    <dl>
+      {{ render_field(form.source) }}
+      {{ render_field(form.destination1)}}
+      {{ render_field(form.destination2)}}
+    </dl>
+    <p><input type=submit value=Submit>
+  </form>
+  </div>
+  	{% if travel1 %}
+	<iframe
+	  width="500"
+	  height="400"
+	  frameborder="0" style="border:0"
+	  src={{travel1}} allowfullscreen>
+	</iframe>
+	{% endif %}
+	{% if travel2 %}
+	<iframe
+	  width="500"
+	  height="400"
+	  frameborder="0" style="border:0"
+	  src={{travel2}} allowfullscreen>
+	</iframe>
+	{% endif %}
+	{% if supermarkets %}
+	<iframe
+	  width="500"
+	  height="400"
+	  frameborder="0" style="border:0"
+	  src={{supermarkets}} allowfullscreen>
+	</iframe>
+	{% endif %}
+</html>
