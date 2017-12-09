@@ -14,9 +14,9 @@ def clean_location_string(unclean):
 
 class input_form(Form):
     source = StringField('Source Address', [validators.required()])
-    destination1 = StringField('Public Transport Address 1',
+    destination1 = StringField('Transport Address 1',
                                [validators.required()])
-    destination2 = StringField('Public Transport Address 2')
+    destination2 = StringField('Transport Address 2')
     near_me = StringField('x Near Me (no argument = "Woolworths and Coles"')
     transport = SelectField(u'Transport Type', choices=[('transit',
                             'Public Transport'), ('driving', 'Car')])
@@ -31,7 +31,6 @@ def index():
         destination2 = clean_location_string(form.destination2.data)
         near_me = form.near_me.data
         if near_me is not "":
-            print ('-----------------------------------------')
             near_me = near_me.replace(" ", "+")
         transport = form.transport.data
         directions1 = build_direction_string(source, destination1, transport)
